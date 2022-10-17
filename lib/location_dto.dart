@@ -29,7 +29,7 @@ class LocationDto {
 
   factory LocationDto.fromJson(Map<dynamic, dynamic> json) {
     bool isLocationMocked =
-        Platform.isAndroid ? json[Keys.ARG_IS_MOCKED]??;
+        Platform.isAndroid ? json[Keys.ARG_IS_MOCKED]:false;
     return LocationDto._(
       json[Keys.ARG_LATITUDE],
       json[Keys.ARG_LONGITUDE],
@@ -40,7 +40,7 @@ class LocationDto {
       json[Keys.ARG_HEADING],
       json[Keys.ARG_TIME],
       isLocationMocked,
-      json[Keys.ARG_PROVIDER] ?? '',
+      json[Keys.ARG_PROVIDER] ??,
     );
   }
 
